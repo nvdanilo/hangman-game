@@ -5,3 +5,14 @@ const generateIntRandom = (min, max) =>
 
 export const getRandomElement = array =>
     array[generateIntRandom(0, array.length - 1)];
+
+export const isEqualArrays = (a, b) => {
+    if (a.length !== b.length) {
+        return false;
+    }
+
+    const sortedA = [ ...a ].sort();
+    const sortedB = [ ...b ].sort();
+
+    return sortedA.every((e, i) => e === sortedB[i]);
+}

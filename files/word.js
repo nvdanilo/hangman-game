@@ -1,4 +1,4 @@
-import { getRandomElement } from "./util.js";
+import { getRandomElement, isEqualArrays } from "./util.js";
 import { dictionary, maskChar } from "./config.js";
 
 export class Word {
@@ -32,5 +32,9 @@ export class Word {
         }
 
         return false;
+    }
+
+    revealed() {
+        return isEqualArrays(this.#foundLetters, [ ...new Set(this.#word) ]);
     }
 }
